@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { QrCode, Settings, Printer, Award, Star } from 'lucide-react';
-import { FeatureStep } from '../types';
 
-const featureSteps: FeatureStep[] = [
+const featureSteps = [
   {
     id: 1,
     title: "Subscribe & Setup",
@@ -30,12 +29,12 @@ const featureSteps: FeatureStep[] = [
   }
 ];
 
-const FeaturesSection: React.FC = () => {
+const FeaturesSection = () => {
   const [activeStep, setActiveStep] = useState(1);
   const [incentiveType, setIncentiveType] = useState('percentage');
   const [incentiveValue, setIncentiveValue] = useState('10');
 
-  const getIconComponent = (iconName: string, size = 24) => {
+  const getIconComponent = (iconName, size = 24) => {
     switch(iconName) {
       case 'settings':
         return <Settings size={size} />;
@@ -53,8 +52,8 @@ const FeaturesSection: React.FC = () => {
   return (
     <section id="features" className="section bg-white">
       <div className="container-custom">
-        <motion.div 
-          className="text-center mb-16"
+        <motion.div
+          className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,10 +64,10 @@ const FeaturesSection: React.FC = () => {
             Our simple system connects businesses with customers to boost your online reputation through reviews and social media engagement.
           </p>
         </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* Step Indicators - Mobile Only */}
-          <div className="md:hidden grid grid-cols-4 gap-4 mb-8">
+          <div className="md:hidden grid grid-cols-4 gap-2 mb-8">
             {featureSteps.map((step) => (
               <motion.button
                 key={step.id}
@@ -81,9 +80,9 @@ const FeaturesSection: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: step.id * 0.1 }}
               >
-                <div className={`h-10 w-10 rounded-full flex items-center justify-center mb-2 ${
-                  activeStep === step.id 
-                    ? 'bg-primary-500 text-white' 
+                <div className={`h-14 w-14 rounded-full flex items-center justify-center text-2xl mb-2 ${
+                  activeStep === step.id
+                    ? 'bg-primary-500 text-white'
                     : 'bg-gray-200 text-gray-600'
                 }`}>
                   {step.id}
@@ -92,9 +91,9 @@ const FeaturesSection: React.FC = () => {
               </motion.button>
             ))}
           </div>
-          
+
           {/* Visual Illustration */}
-          <motion.div 
+          <motion.div
             className="relative h-[400px] md:h-[500px] bg-gray-100 rounded-xl overflow-hidden"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -106,7 +105,7 @@ const FeaturesSection: React.FC = () => {
               <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] transform rotate-[30deg] skew-x-[15deg] skew-y-[-15deg] scale-[0.8] md:scale-100">
                 {/* Setup Interface */}
                 {activeStep === 1 && (
-                  <motion.div 
+                  <motion.div
                     className="absolute top-[10%] right-[15%] w-64 h-72 bg-white rounded-lg shadow-xl overflow-hidden z-40"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -120,20 +119,20 @@ const FeaturesSection: React.FC = () => {
                         <div>
                           <label className="block text-xs mb-1">Reward Type</label>
                           <div className="flex gap-2">
-                            <button 
+                            <button
                               className={`px-3 py-1 text-xs rounded-full ${
-                                incentiveType === 'percentage' 
-                                  ? 'bg-primary-500 text-white' 
+                                incentiveType === 'percentage'
+                                  ? 'bg-primary-500 text-white'
                                   : 'bg-gray-200'
                               }`}
                               onClick={() => setIncentiveType('percentage')}
                             >
                               Percentage
                             </button>
-                            <button 
+                            <button
                               className={`px-3 py-1 text-xs rounded-full ${
-                                incentiveType === 'fixed' 
-                                  ? 'bg-primary-500 text-white' 
+                                incentiveType === 'fixed'
+                                  ? 'bg-primary-500 text-white'
                                   : 'bg-gray-200'
                               }`}
                               onClick={() => setIncentiveType('fixed')}
@@ -145,9 +144,9 @@ const FeaturesSection: React.FC = () => {
                         <div>
                           <label className="block text-xs mb-1">Reward Value</label>
                           <div className="flex items-center">
-                            <input 
-                              type="number" 
-                              className="w-20 text-sm p-1 border rounded"
+                            <input
+                              type="number"
+                              className="w-20 text-sm p-1 border rounded-sm"
                               value={incentiveValue}
                               onChange={(e) => setIncentiveValue(e.target.value)}
                             />
@@ -156,9 +155,9 @@ const FeaturesSection: React.FC = () => {
                             </span>
                           </div>
                         </div>
-                        <div className="bg-gray-50 p-3 rounded">
+                        <div className="bg-gray-50 p-3 rounded-sm">
                           <p className="text-xs">
-                            Customers will receive {incentiveValue}{incentiveType === 'percentage' ? '%' : '$'} off 
+                            Customers will receive {incentiveValue}{incentiveType === 'percentage' ? '%' : '$'} off
                             their next purchase when they leave a review or social media post.
                           </p>
                         </div>
@@ -169,7 +168,7 @@ const FeaturesSection: React.FC = () => {
 
                 {/* Printed QR Code */}
                 {activeStep === 2 && (
-                  <motion.div 
+                  <motion.div
                     className="absolute top-[10%] right-[15%] w-56 h-72 bg-white shadow-xl z-50"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -196,7 +195,7 @@ const FeaturesSection: React.FC = () => {
                 )}
 
                 {/* Phone with Customer Interface */}
-                <motion.div 
+                <motion.div
                   className="absolute top-[10%] right-[15%] w-40 h-72 bg-white rounded-[36px] border-8 border-gray-800 shadow-xl flex flex-col overflow-hidden z-40"
                   animate={{
                     y: activeStep === 3 ? -20 : 0,
@@ -211,16 +210,16 @@ const FeaturesSection: React.FC = () => {
                     <div className="space-y-2">
                       <div className="flex justify-center mb-4">
                         {[1, 2, 3, 4, 5].map((star) => (
-                          <Star 
+                          <Star
                             key={star}
                             className="w-4 h-4 text-yellow-400 fill-yellow-400"
                           />
                         ))}
                       </div>
-                      <div className="h-20 bg-gray-100 rounded p-2">
+                      <div className="h-20 bg-gray-100 rounded-sm p-2">
                         <p className="text-[8px] text-gray-400">Write your review...</p>
                       </div>
-                      <button className="w-full bg-primary-500 text-white text-[10px] py-1 rounded">
+                      <button className="w-full bg-primary-500 text-white text-[10px] py-1 rounded-sm">
                         Submit Review
                       </button>
                       <p className="text-[8px] text-center text-gray-500 mt-2">
@@ -231,7 +230,7 @@ const FeaturesSection: React.FC = () => {
                 </motion.div>
 
                 {/* Social Media Posts */}
-                <motion.div 
+                <motion.div
                   className="absolute top-[5%] left-[20%] w-32 h-24 bg-white rounded-lg shadow-xl overflow-hidden transform rotate-[-5deg]"
                   animate={{
                     y: activeStep === 4 ? -15 : 0,
@@ -252,9 +251,9 @@ const FeaturesSection: React.FC = () => {
                     <div className="h-2 bg-gray-300 rounded-full w-3/4"></div>
                   </div>
                 </motion.div>
-                
+
                 {/* Google Review */}
-                <motion.div 
+                <motion.div
                   className="absolute top-[30%] left-[5%] w-28 h-20 bg-white rounded-lg shadow-xl overflow-hidden transform rotate-[5deg]"
                   animate={{
                     y: activeStep === 4 ? -10 : 10,
@@ -280,11 +279,11 @@ const FeaturesSection: React.FC = () => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Step Details */}
-          <div className="md:pl-8">
+          <div className="mt-4 md:pl-8">
             {/* Step Indicators - Desktop Only */}
-            <div className="hidden md:grid grid-cols-4 gap-4 mb-12">
+            <div className="hidden md:grid grid-cols-4 gap-2 mb-8">
               {featureSteps.map((step) => (
                 <motion.button
                   key={step.id}
@@ -297,47 +296,50 @@ const FeaturesSection: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: step.id * 0.1 }}
                 >
-                  <div className={`h-14 w-14 rounded-full flex items-center justify-center mb-2 ${
-                    activeStep === step.id 
-                      ? 'bg-primary-500 text-white' 
+                  <div className={`h-18 w-18 rounded-full flex items-center justify-center mb-2 cursor-pointer text-3xl ${
+                    activeStep === step.id
+                      ? 'bg-primary-500 text-white'
                       : 'bg-gray-200 text-gray-600'
                   }`}>
                     {step.id}
                   </div>
-                  <span className="text-sm font-medium">{step.title.split(' ')[0]}</span>
+
+                  <span className="text-sm font-medium uppercase">{step.title.split(' ')[0]}</span>
                 </motion.button>
               ))}
             </div>
-            
+
             {/* Current Step Info */}
             {featureSteps.map((step) => (
               <motion.div
                 key={step.id}
-                className={`${activeStep === step.id ? 'block' : 'hidden'}`}
+                className={`mt-4 ${activeStep === step.id ? 'block' : 'hidden'}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="bg-gradient-to-r from-primary-500 to-accent-500 rounded-full p-3 mr-4 text-white">
+                  <div className="bg-linear-to-r from-primary-500 to-accent-500 rounded-full p-3 mr-4 text-white">
                     {getIconComponent(step.icon, 24)}
                   </div>
+
                   <h3>{step.title}</h3>
                 </div>
-                
-                <p className="text-gray-700 mb-6">
+
+                <p className="text-gray-700">
                   {step.description}
                 </p>
-                
-                <div className="flex space-x-4">
-                  <button 
+
+                <div className="mt-8 flex space-x-4">
+                  <button
                     onClick={() => setActiveStep(Math.max(1, activeStep - 1))}
                     className="btn btn-secondary"
                     disabled={activeStep === 1}
                   >
                     Previous
                   </button>
-                  <button 
+
+                  <button
                     onClick={() => setActiveStep(Math.min(featureSteps.length, activeStep + 1))}
                     className="btn btn-primary"
                     disabled={activeStep === featureSteps.length}

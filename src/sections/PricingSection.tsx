@@ -4,7 +4,7 @@ import { Pyramid as Origami, Carrot, Star, Bell, MessageSquare, FileText, LineCh
 
 const PricingSection: React.FC = () => {
   return (
-    <section className="section bg-gradient-to-br from-primary-50 to-accent-50">
+    <section className="section bg-linear-to-br from-primary-50 to-accent-50">
       <div className="container-custom">
         <motion.div 
           className="text-center mb-16"

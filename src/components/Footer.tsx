@@ -76,13 +76,13 @@ const Footer: React.FC = () => {
           >
             <h3 className="font-bold text-lg mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+              <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-xs hover:shadow-md transition-shadow">
                 <Instagram size={20} className="text-gray-700" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+              <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-xs hover:shadow-md transition-shadow">
                 <Facebook size={20} className="text-gray-700" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+              <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-xs hover:shadow-md transition-shadow">
                 <Twitter size={20} className="text-gray-700" />
               </a>
             </div>

@@ -15,7 +15,7 @@ const SecondarySignupSection: React.FC = () => {
   };
 
   return (
-    <section className="section bg-gradient-to-br from-accent-50 to-primary-50">
+    <section className="section bg-linear-to-br from-accent-50 to-primary-50">
       <div className="container-custom">
         <motion.div 
           className="text-center mb-12"
@@ -43,11 +43,11 @@ const SecondarySignupSection: React.FC = () => {
         >
           <p className="text-gray-500 text-sm mb-2">Trusted by businesses worldwide</p>
           <div className="flex flex-wrap justify-center gap-8 opacity-60">
-            <div className="h-8 w-24 bg-gray-400 rounded"></div>
-            <div className="h-8 w-24 bg-gray-400 rounded"></div>
-            <div className="h-8 w-24 bg-gray-400 rounded"></div>
-            <div className="h-8 w-24 bg-gray-400 rounded"></div>
-            <div className="h-8 w-24 bg-gray-400 rounded"></div>
+            <div className="h-8 w-24 bg-gray-400 rounded-sm"></div>
+            <div className="h-8 w-24 bg-gray-400 rounded-sm"></div>
+            <div className="h-8 w-24 bg-gray-400 rounded-sm"></div>
+            <div className="h-8 w-24 bg-gray-400 rounded-sm"></div>
+            <div className="h-8 w-24 bg-gray-400 rounded-sm"></div>
           </div>
         </motion.div>
       </div>

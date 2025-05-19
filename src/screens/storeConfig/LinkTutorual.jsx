@@ -1,0 +1,44 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import GradientTextButton from "../../components/interaction/GradientTextButton";
+
+const LinkTutorial = ({ showButtonText, sections }) => {
+  const [shouldShowTutorial, setShouldShowTutorial] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex justify-end">
+        <GradientTextButton onClick={() => setShouldShowTutorial(!shouldShowTutorial)}>
+          {shouldShowTutorial ? 'Hide' : showButtonText}
+        </GradientTextButton>
+      </div>
+
+      {shouldShowTutorial && (
+        <div className="flex gap-2 bg-primary-50 p-4 rounded-md">
+          {sections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p>{section.content}</p>
+
+              <motion.img
+                src={section.image}
+                className="rounded-md"
+                initial={{ scale: 0.3 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index+1) * 0.6, duration: 0.9 }}
+              />
+            </motion.div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default LinkTutorial;

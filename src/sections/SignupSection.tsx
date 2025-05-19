@@ -15,7 +15,7 @@ const SignupSection: React.FC = () => {
   };
 
   return (
-    <section id="signup" className="section bg-gradient-to-br from-primary-50 to-accent-50">
+    <section id="signup" className="section bg-linear-to-br from-primary-50 to-accent-50">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <motion.div 

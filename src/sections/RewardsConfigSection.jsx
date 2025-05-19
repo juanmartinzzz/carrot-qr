@@ -5,19 +5,12 @@ import { HexColorPicker } from 'react-colorful';
 import QRCode from 'react-qr-code';
 import { nanoid } from 'nanoid';
 
-interface RewardEntry {
-  id: string;
-  platform: string;
-  incentiveType: string;
-  amount: number;
-}
-
 const platforms = ['Google Maps', 'Instagram', 'X'];
 const incentiveTypes = ['Discount', 'Cash', 'Custom'];
 
 const defaultBrandColors = ['#6366F1', '#EC4899', '#8B5CF6'];
 
-const PlatformIcon: React.FC<{ platform: string }> = ({ platform }) => {
+const PlatformIcon = ({ platform }) => {
   switch (platform) {
     case 'Google Maps':
       return <MapPin className="w-5 h-5" />;
@@ -30,18 +23,18 @@ const PlatformIcon: React.FC<{ platform: string }> = ({ platform }) => {
   }
 };
 
-const RewardsConfigSection: React.FC = () => {
+const RewardsConfigSection = () => {
   const [companyName, setCompanyName] = useState('');
   const [address, setAddress] = useState('');
   const [brandColors, setBrandColors] = useState(defaultBrandColors);
-  const [activeColorIndex, setActiveColorIndex] = useState<number | null>(null);
-  const [rewards, setRewards] = useState<RewardEntry[]>([
+  const [activeColorIndex, setActiveColorIndex] = useState(null);
+  const [rewards, setRewards] = useState([
     { id: nanoid(), platform: 'Google Maps', incentiveType: 'Discount', amount: 5 },
     { id: nanoid(), platform: 'Instagram', incentiveType: 'Discount', amount: 10 }
   ]);
   const [uniqueId] = useState(() => nanoid(10));
 
-  const handleColorChange = (color: string) => {
+  const handleColorChange = (color) => {
     if (activeColorIndex !== null) {
       const newColors = [...brandColors];
       newColors[activeColorIndex] = color;
@@ -51,7 +44,7 @@ const RewardsConfigSection: React.FC = () => {
 
   const addReward = () => {
     if (rewards.length < 3) {
-      setRewards([...rewards, { 
+      setRewards([...rewards, {
         id: nanoid(),
         platform: platforms[0],
         incentiveType: incentiveTypes[0],
@@ -60,20 +53,20 @@ const RewardsConfigSection: React.FC = () => {
     }
   };
 
-  const removeReward = (id: string) => {
+  const removeReward = (id) => {
     setRewards(rewards.filter(reward => reward.id !== id));
   };
 
-  const updateReward = (id: string, field: keyof RewardEntry, value: string | number) => {
-    setRewards(rewards.map(reward => 
+  const updateReward = (id, field, value) => {
+    setRewards(rewards.map(reward =>
       reward.id === id ? { ...reward, [field]: value } : reward
     ));
   };
 
   return (
-    <section className="section bg-gradient-to-br from-primary-50 to-accent-50">
+    <section className="section bg-linear-to-br from-primary-50 to-accent-50">
       <div className="container-custom max-w-4xl">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +120,7 @@ const RewardsConfigSection: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveColorIndex(index === activeColorIndex ? null : index)}
                   >
-                    <div 
+                    <div
                       className={`w-16 h-16 rounded-2xl shadow-lg cursor-pointer transition-transform ${
                         activeColorIndex === index ? 'ring-4 ring-primary-200' : ''
                       }`}
@@ -140,7 +133,7 @@ const RewardsConfigSection: React.FC = () => {
                 ))}
               </div>
               {activeColorIndex !== null && (
-                <motion.div 
+                <motion.div
                   className="mt-6"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -171,11 +164,11 @@ const RewardsConfigSection: React.FC = () => {
                 </motion.button>
               )}
             </div>
-            
+
             <div className="space-y-6">
               {rewards.map((reward, index) => (
-                <motion.div 
-                  key={reward.id} 
+                <motion.div
+                  key={reward.id}
                   className="bg-gray-50 p-6 rounded-2xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -190,8 +183,8 @@ const RewardsConfigSection: React.FC = () => {
                             key={platform}
                             onClick={() => updateReward(reward.id, 'platform', platform)}
                             className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors ${
-                              reward.platform === platform 
-                                ? 'bg-primary-500 text-white' 
+                              reward.platform === platform
+                                ? 'bg-primary-500 text-white'
                                 : 'bg-white text-gray-600 hover:bg-gray-100'
                             }`}
                           >
@@ -201,7 +194,7 @@ const RewardsConfigSection: React.FC = () => {
                         ))}
                       </div>
                     </div>
-                    
+
                     <div className="flex items-end gap-4">
                       <div className="flex-1">
                         <label className="block text-sm font-medium mb-2">Type</label>
@@ -211,8 +204,8 @@ const RewardsConfigSection: React.FC = () => {
                               key={type}
                               onClick={() => updateReward(reward.id, 'incentiveType', type)}
                               className={`px-4 py-2 rounded-full transition-colors ${
-                                reward.incentiveType === type 
-                                  ? 'bg-accent-500 text-white' 
+                                reward.incentiveType === type
+                                  ? 'bg-accent-500 text-white'
                                   : 'bg-white text-gray-600 hover:bg-gray-100'
                               }`}
                             >
@@ -221,7 +214,7 @@ const RewardsConfigSection: React.FC = () => {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="w-24">
                         <label className="block text-sm font-medium mb-2">Amount</label>
                         <input
@@ -232,7 +225,7 @@ const RewardsConfigSection: React.FC = () => {
                           min="0"
                         />
                       </div>
-                      
+
                       <motion.button
                         onClick={() => removeReward(reward.id)}
                         className="text-gray-400 hover:text-error-500 p-2"
@@ -262,8 +255,8 @@ const RewardsConfigSection: React.FC = () => {
             <h3 className="text-2xl font-bold mb-2">Your QR Code</h3>
             <p className="text-gray-600">Ready to start collecting reviews</p>
           </div>
-          
-          <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-8 rounded-2xl mb-8">
+
+          <div className="bg-linear-to-br from-primary-50 to-accent-50 p-8 rounded-2xl mb-8">
             <QRCode
               value={`https://carrotqr.com/welcome/${uniqueId}`}
               size={256}
@@ -271,7 +264,7 @@ const RewardsConfigSection: React.FC = () => {
               className="mx-auto"
             />
           </div>
-          
+
           <div className="text-left">
             <p className="text-sm font-medium text-gray-700 mb-2">Your unique URL:</p>
             <div className="bg-gray-50 p-4 rounded-xl font-mono text-sm break-all">
