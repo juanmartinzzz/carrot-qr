@@ -1,14 +1,15 @@
 import Home from './screens/home/Home';
 import Footer from './components/Footer';
+import Hello from './screens/hello/Hello';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/:storeCode?" element={<Home />} />
+        <Route path="/:storeCodeParam?" element={<Home />} />
 
-        <Route path="/hello" element={<div>Hello World</div>} />
+        <Route path="/hello/:storeCodeParam" element={<Hello />} />
       </Routes>
 
       <Footer />

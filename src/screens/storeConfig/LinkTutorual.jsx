@@ -14,7 +14,7 @@ const LinkTutorial = ({ showButtonText, sections }) => {
       </div>
 
       {shouldShowTutorial && (
-        <div className="flex gap-2 bg-primary-50 p-4 rounded-md">
+        <div className="grid grid-cols-2 gap-4 bg-primary-50 p-4 rounded-md">
           {sections.map((section, index) => (
             <motion.div
               key={index}
@@ -22,8 +22,13 @@ const LinkTutorial = ({ showButtonText, sections }) => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-sm"
             >
-              <p>{section.content}</p>
+              <div className="flex flex-col gap-2">
+                {section.content.map((content, index) => (
+                  <p key={index} className={`${content.startsWith('Option') ? 'font-bold' : ''}`}>{content}</p>
+                ))}
+              </div>
 
               <motion.img
                 src={section.image}

@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import HeroSection from "../../sections/HeroSection";
 import StoreConfig from "../storeConfig/storeConfig";
@@ -11,38 +11,33 @@ import generatedExample from "../../assets/images/generatedExample.png";
 import BlackButton from "../../components/interaction/BlackButton";
 
 const Home = () => {
+  const navigate = useNavigate();
   const { storeCodeParam } = useParams();
   const [storeCode, setStoreCode] = useState(null);
 
   useEffect(() => {
     // If storeCode passed as a param, use it
-    console.log({storeCodeParam});
     if(storeCodeParam) {
-      console.log('---1');
+      navigate(`/hello/${storeCodeParam}`);
       setStoreCode(storeCodeParam);
       return;
     }
 
     // If storeCode set in local storage, use it
     const storeCodeLocalStorage = localStorage.getItem('storeCode');
-    console.log({storeCodeLocalStorage});
     if(storeCodeLocalStorage) {
-      console.log('---2');
       setStoreCode(storeCodeLocalStorage);
       return;
     }
 
     // Generate new storeCode if not passed as a param nor set in local storage
     const newStoreCode = `CAR-${nanoid(8)}`;
-    console.log({newStoreCode});
-    console.log('---3');
     setStoreCode(newStoreCode);
     localStorage.setItem('storeCode', newStoreCode);
   }, []);
 
   const handleStoreCodeReset = () => {
     const newStoreCode = `CAR-${nanoid(8)}`;
-    console.log({newStoreCode});
     localStorage.setItem('storeCode', newStoreCode);
     setStoreCode(newStoreCode);
   }
