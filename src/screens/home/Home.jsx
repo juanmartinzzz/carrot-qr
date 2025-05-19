@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import HeroSection from "../../sections/HeroSection";
@@ -7,6 +7,7 @@ import StoreConfig from "../storeConfig/storeConfig";
 import SocialBanner from "../../components/SocialBanner";
 import PricingSection from "../../sections/PricingSection";
 import FeaturesSection from "../../sections/FeaturesSection";
+import QuestionSection from "../../sections/QuestionSection";
 import generatedExample from "../../assets/images/generatedExample.png";
 import BlackButton from "../../components/interaction/BlackButton";
 
@@ -14,6 +15,7 @@ const Home = () => {
   const navigate = useNavigate();
   const { storeCodeParam } = useParams();
   const [storeCode, setStoreCode] = useState(null);
+  const storeConfigRef = useRef(null);
 
   useEffect(() => {
     // If storeCode passed as a param, use it
@@ -44,19 +46,27 @@ const Home = () => {
     setStoreCode(newStoreCode);
   }
 
+  const scrollToStoreConfig = () => {
+    storeConfigRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div>
       <Navbar />
 
       <div className="min-h-screen bg-white text-black font-sans overflow-x-hidden">
         <main>
+          <QuestionSection onAnswer={scrollToStoreConfig} />
+
           <HeroSection />
 
           {/* <SignupSection /> */}
 
           <SocialBanner />
 
-          <StoreConfig storeCode={storeCode} />
+          <div ref={storeConfigRef}>
+            <StoreConfig storeCode={storeCode} />
+          </div>
 
           <FeaturesSection />
 

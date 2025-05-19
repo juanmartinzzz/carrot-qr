@@ -85,7 +85,7 @@ const PricingSection: React.FC = () => {
               <div>
                 <h3 className="text-2xl font-bold">Pro grower plan</h3>
 
-                <p className="text-gray-600">For serious growth</p>
+                <p className="text-gray-600">For accelerated growth</p>
               </div>
             </div>
 
