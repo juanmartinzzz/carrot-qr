@@ -17,7 +17,9 @@ const Home = () => {
 
   useEffect(() => {
     // If storeCode passed as a param, use it
+    console.log({storeCodeParam});
     if(storeCodeParam) {
+      console.log({storeCodeParam});
       navigate(`/hello/${storeCodeParam}`);
       setStoreCode(storeCodeParam);
       return;

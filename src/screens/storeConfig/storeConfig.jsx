@@ -108,7 +108,7 @@ const StoreConfig = ({ storeCode }) => {
 
           <div className="bg-linear-to-br from-primary-50 to-accent-50 p-8 rounded-2xl mb-8">
             <QRCode
-              value={`https://carrotqr.com/${storeCode}`}
+              value={`${import.meta.env.VITE_APP_URL}/${storeCode}`}
               size={256}
               level="H"
               className="mx-auto"
@@ -118,8 +118,8 @@ const StoreConfig = ({ storeCode }) => {
           <div className="text-left">
             <p className="text-sm font-medium text-gray-700 mb-2">Your unique URL:</p>
             <div className="flex justify-between gap-2 bg-gray-50 p-4 rounded-xl font-mono text-sm break-all">
-              https://carrotqr.com/{storeCode}
-              <GradientTextButton onClick={() => navigator.clipboard.writeText(`https://carrotqr.com/${storeCode}`)}>Copy</GradientTextButton>
+              {import.meta.env.VITE_APP_URL}/{storeCode}
+              <GradientTextButton onClick={() => navigator.clipboard.writeText(`${import.meta.env.VITE_APP_URL}/${storeCode}`)}>Copy</GradientTextButton>
             </div>
           </div>
         </motion.div>
