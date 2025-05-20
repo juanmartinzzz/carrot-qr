@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { SiX } from '@icons-pack/react-simple-icons';
+import { HashLink } from '../components/HashLink';
 
-const QuestionSection = ({ onAnswer }) => {
+const QuestionSection = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showPromoterMessage, setShowPromoterMessage] = useState(false);
 
@@ -9,8 +11,6 @@ const QuestionSection = ({ onAnswer }) => {
     setSelectedAnswer(answer);
     if (answer === 'no') {
       setShowPromoterMessage(true);
-    } else {
-      onAnswer();
     }
   };
 
@@ -23,8 +23,8 @@ const QuestionSection = ({ onAnswer }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Do you want Google Maps Reviews and followers on your socials?
+          <h2 className="mt-4 text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            Q: do you want more Google Maps Reviews and followers on your socials?
           </h2>
         </motion.div>
 
@@ -33,23 +33,24 @@ const QuestionSection = ({ onAnswer }) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleAnswer('no')}
-            className={`btn btn-gradient p-8 text-xl font-semibold ${
-              selectedAnswer === 'no' ? 'ring-4 ring-primary-500' : ''
-            }`}
+            className={`btn btn-gradient p-8 text-xl font-semibold ${selectedAnswer === 'no' ? 'ring-4 ring-primary-500' : ''
+              }`}
           >
             Nope, I don't even have a business!
           </motion.button>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => handleAnswer('yes')}
-            className={`btn btn-gradient p-8 text-xl font-semibold ${
-              selectedAnswer === 'yes' ? 'ring-4 ring-primary-500' : ''
-            }`}
-          >
-            Yup I absolutely need those!
-          </motion.button>
+          <HashLink
+            to="#quick-how-it-works">
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`btn btn-gradient p-8 text-xl font-semibold ${selectedAnswer === 'yes' ? 'ring-4 ring-primary-500' : ''
+                }`}
+            >
+              Yeah I absolutely need those!
+            </motion.button>
+          </HashLink>
         </div>
 
         {showPromoterMessage && (
@@ -58,17 +59,17 @@ const QuestionSection = ({ onAnswer }) => {
             animate={{ opacity: 1, y: 0 }}
             className="mt-12 text-center"
           >
-            <p className="text-xl text-gray-700">
-              We're looking for promoters -- if you know people who can use us contact me @{' '}
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              <span className="font-bold">I'm looking for promoters</span> -- if you're a marketing wizard and want to partner with me to grow this business, contact me at {' '}
               <a
-                href="https://twitter.com/carrotqr"
+                href="https://x.com/juanito_asap"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-600 hover:text-primary-700 font-semibold underline"
               >
-                @carrotqr
+                @juanito_asap
               </a>
-              {' '}and let's talk
+              {' '} on <SiX className="inline-block" size={16} /> and let's talk
             </p>
           </motion.div>
         )}

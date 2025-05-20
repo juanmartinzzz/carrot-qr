@@ -1,11 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HashLink } from '../components/HashLink';
-import { ArrowRight, Star, ThumbsUp, MessageSquare, Instagram } from 'lucide-react';
+import qrCarrotLogo from '../assets/images/qrCarrotLogo.png';
+import { ArrowRight, Star, ThumbsUp, MessageSquare, Instagram, ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
   return (
     <section id="hero" className="pt-28 pb-16 md:py-32 relative overflow-hidden">
+      <div className="relative">
+        <img src={qrCarrotLogo} alt="Carrot QR Logo" className="absolute top-0 left-0 opacity-20" />
+      </div>
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row items-center">
           <motion.div
@@ -15,22 +19,18 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="mb-6">
-              Boost your business with <span className="gradient-text">Customer-Driven</span> reputation
+              Reviews + mentions get you <span className="gradient-text">Customer-Driven</span> reputation
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg">
-              Leverage the power of customer reviews and social media posts to enhance your online presence and drive growth.
-            </p>
-
-            <p className="text-md mb-6">
-              For <span className="font-bold">$10</span> per month
+            <p className="text-lg md:text-xl mb-8 max-w-lg">
+              Carrot QR helps you get people talking about your business online. <span className="font-bold">For free.</span>
             </p>
 
             <HashLink
-              to="#signup"
+              to="#store-config"
               className="btn btn-primary inline-flex items-center gap-2 text-lg"
             >
-              Get Started <ArrowRight size={20} />
+              Get Started <ArrowDown size={20} />
             </HashLink>
           </motion.div>
 

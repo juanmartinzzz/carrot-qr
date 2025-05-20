@@ -1,29 +1,26 @@
 import { nanoid } from "nanoid";
-import { useEffect, useState, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import HeroSection from "../../sections/HeroSection";
 import StoreConfig from "../storeConfig/storeConfig";
 import SocialBanner from "../../components/SocialBanner";
+import { useNavigate, useParams } from "react-router-dom";
 import PricingSection from "../../sections/PricingSection";
 import FeaturesSection from "../../sections/FeaturesSection";
 import QuestionSection from "../../sections/QuestionSection";
-import generatedExample from "../../assets/images/generatedExample.png";
 import BlackButton from "../../components/interaction/BlackButton";
+import generatedExample from "../../assets/images/generatedExample.png";
+import QuickHowItWorksSection from "../../sections/QuickHowItWorksSection";
 
 const Home = () => {
   const navigate = useNavigate();
   const { storeCodeParam } = useParams();
   const [storeCode, setStoreCode] = useState(null);
-  const storeConfigRef = useRef(null);
 
   useEffect(() => {
     // If storeCode passed as a param, use it
-    console.log({storeCodeParam});
     if(storeCodeParam) {
-      console.log({storeCodeParam});
       navigate(`/hello/${storeCodeParam}`);
-      setStoreCode(storeCodeParam);
       return;
     }
 
@@ -46,37 +43,26 @@ const Home = () => {
     setStoreCode(newStoreCode);
   }
 
-  const scrollToStoreConfig = () => {
-    storeConfigRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div>
       <Navbar />
 
       <div className="min-h-screen bg-white text-black font-sans overflow-x-hidden">
         <main>
-          <QuestionSection onAnswer={scrollToStoreConfig} />
+          <QuestionSection />
 
           <HeroSection />
 
-          {/* <SignupSection /> */}
-
           <SocialBanner />
 
-          <div ref={storeConfigRef}>
-            <StoreConfig storeCode={storeCode} />
-          </div>
+          {/* Section explaining in a SUPER quick and clear way how our service works, by letting the User know they have to 1. Perform very quick configuration and 2. Print a QR code to display on their store. That's it! After this, all that is needed is to tell people to review the business, follow or mention on Instagram and point them to the QR code. */}
+          <QuickHowItWorksSection />
+
+          <StoreConfig storeCode={storeCode} />
 
           <FeaturesSection />
 
-          {/* <SecondarySignupSection /> */}
-
-          {/* <RewardsConfigSection /> */}
-
           <PricingSection />
-
-          {/* <SignupSection /> */}
         </main>
 
         <div className="flex justify-center items-center h-screen text-7xl">

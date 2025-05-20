@@ -53,7 +53,7 @@ const StoreConfig = ({ storeCode }) => {
   }
 
   return (
-    <section className="section bg-linear-to-br from-primary-50 to-accent-50">
+    <section id="store-config" className="section bg-linear-to-br from-primary-50 to-accent-50">
       <div className="container-custom max-w-4xl">
         <motion.div
           className="text-center mb-16"
@@ -63,10 +63,10 @@ const StoreConfig = ({ storeCode }) => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="mb-4">
-            Start using our service <span className="gradient-text">TODAY</span> for FREE
+            Step 1: tell us a few key details about your business
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Configure your business profile and start collecting reviews in minutes
+            Setting up your QR code takes 5 minutes and is completely <span className="gradient-text">FREE</span>.
           </p>
         </motion.div>
 
