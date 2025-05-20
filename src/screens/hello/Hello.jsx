@@ -4,13 +4,13 @@ import remote from "../../integrations/supabase";
 import { useNavigate, useParams } from "react-router-dom";
 import { SiGoogle, SiInstagram } from "@icons-pack/react-simple-icons";
 
-import AnimatedBackground from "./components/AnimatedBackground";
-import ReviewForm from "./components/ReviewForm";
-import SocialCard from "./components/SocialCard";
-import InstagramGallery from "./components/InstagramGallery";
-import ReadableText from "./components/ReadableText";
-import GlassCard from "./components/GlassCard";
-import AnimatedStats from "./components/AnimatedStats";
+import AnimatedBackground from "./AnimatedBackground";
+import ReviewForm from "./ReviewForm";
+import SocialCard from "./SocialCard";
+import InstagramGallery from "./InstagramGallery";
+import ReadableText from "./ReadableText";
+import GlassCard from "./GlassCard";
+import AnimatedStats from "./AnimatedStats";
 
 // store.google_maps_url and store.instagram_url are to be displayed in this screen
 // owner.brand_colour_1, owner.brand_colour_2, owner.brand_colour_3 are to be used as the background colour of the screen
