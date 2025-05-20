@@ -55,7 +55,6 @@ const Home = () => {
 
           <SocialBanner />
 
-          {/* Section explaining in a SUPER quick and clear way how our service works, by letting the User know they have to 1. Perform very quick configuration and 2. Print a QR code to display on their store. That's it! After this, all that is needed is to tell people to review the business, follow or mention on Instagram and point them to the QR code. */}
           <QuickHowItWorksSection />
 
           <StoreConfig storeCode={storeCode} />

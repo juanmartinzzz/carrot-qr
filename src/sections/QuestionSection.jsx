@@ -24,7 +24,7 @@ const QuestionSection = () => {
           className="text-center mb-12"
         >
           <h2 className="mt-4 text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Q: do you want more Google Maps Reviews and followers on your socials?
+            Q: do you want more Google Maps reviews and followers on your socials?
           </h2>
         </motion.div>
 
@@ -60,7 +60,7 @@ const QuestionSection = () => {
             className="mt-12 text-center"
           >
             <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-              <span className="font-bold">I'm looking for promoters</span> -- if you're a marketing wizard and want to partner with me to grow this business, contact me at {' '}
+              <span className="font-bold">I'm looking for promoters</span> -- if you're a marketing wizard and want to partner with me to grow this business: let's talk! Contact me at {' '}
               <a
                 href="https://x.com/juanito_asap"
                 target="_blank"
@@ -69,7 +69,7 @@ const QuestionSection = () => {
               >
                 @juanito_asap
               </a>
-              {' '} on <SiX className="inline-block" size={16} /> and let's talk
+              {' '} on <SiX className="inline-block" size={16} />
             </p>
           </motion.div>
         )}
