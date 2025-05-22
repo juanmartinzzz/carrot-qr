@@ -11,6 +11,7 @@ import QuestionSection from "../../sections/QuestionSection";
 import BlackButton from "../../components/interaction/BlackButton";
 import generatedExample from "../../assets/images/generatedExample.png";
 import QuickHowItWorksSection from "../../sections/QuickHowItWorksSection";
+import PrintYourQrCodeSection from "../../sections/PrintYourQrCodeSection";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -58,6 +59,8 @@ const Home = () => {
           <QuickHowItWorksSection />
 
           <StoreConfig storeCode={storeCode} />
+
+          <PrintYourQrCodeSection storeCode={storeCode} />
 
           <FeaturesSection />
 

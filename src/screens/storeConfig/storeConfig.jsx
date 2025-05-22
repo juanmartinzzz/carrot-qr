@@ -94,7 +94,7 @@ const StoreConfig = ({ storeCode }) => {
 
         {/* QR Code Section */}
         <motion.div
-          className="bg-white p-12 rounded-3xl shadow-lg text-center max-w-xl mx-auto"
+          className="bg-white p-12 rounded-3xl shadow-lg text-center max-w-xl mx-auto hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

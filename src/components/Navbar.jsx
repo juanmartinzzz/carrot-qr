@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, QrCode } from 'lucide-react';
 import { HashLink } from './HashLink';
+import { useState, useEffect } from 'react';
+import { Menu, X, QrCode } from 'lucide-react';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -28,33 +28,34 @@ const Navbar: React.FC = () => {
       <div className="container-custom flex justify-between items-center">
         <HashLink to="#hero" className="flex items-center gap-2">
           <QrCode className="h-8 w-8 text-primary-600" />
+
           <span className="font-bold text-xl">CarrotQR</span>
         </HashLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <HashLink 
-            to="#hero" 
+        <nav className="hidden md:flex justify-end items-center gap-8">
+          <HashLink
+            to="#hero"
             className="font-medium hover:text-primary-600 transition-colors"
           >
             Home
           </HashLink>
-          <HashLink 
-            to="#features" 
+          <HashLink
+            to="#features"
             className="font-medium hover:text-primary-600 transition-colors"
           >
             How It Works
           </HashLink>
-          <HashLink 
-            to="#signup" 
+          <HashLink
+            to="#signup"
             className="btn btn-primary"
           >
             Get Started
           </HashLink>
         </nav>
-        
+
         {/* Mobile Menu Button */}
-        <button 
+        <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden"
           aria-label="Toggle menu"
@@ -65,29 +66,29 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <motion.div 
+        <motion.div
           className="md:hidden bg-white"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
         >
           <div className="container-custom py-4 flex flex-col space-y-4">
-            <HashLink 
-              to="#hero" 
+            <HashLink
+              to="#hero"
               className="font-medium py-2"
               onClick={() => setIsOpen(false)}
             >
               Home
             </HashLink>
-            <HashLink 
-              to="#features" 
+            <HashLink
+              to="#features"
               className="font-medium py-2"
               onClick={() => setIsOpen(false)}
             >
               How It Works
             </HashLink>
-            <HashLink 
-              to="#signup" 
+            <HashLink
+              to="#signup"
               className="btn btn-primary"
               onClick={() => setIsOpen(false)}
             >

@@ -28,12 +28,12 @@ const QuestionSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 max-w-4xl mx-auto">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleAnswer('no')}
-            className={`btn btn-gradient p-8 text-xl font-semibold ${selectedAnswer === 'no' ? 'ring-4 ring-primary-500' : ''
+            className={`btn btn-gradient p-4 md:p-8 text-base md:text-xl font-semibold ${selectedAnswer === 'no' ? 'ring-4 ring-primary-500' : ''
               }`}
           >
             Nope, I don't even have a business!
@@ -45,7 +45,7 @@ const QuestionSection = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className={`btn btn-gradient p-8 text-xl font-semibold ${selectedAnswer === 'yes' ? 'ring-4 ring-primary-500' : ''
+              className={`btn btn-gradient p-4 md:p-8 text-base md:text-xl font-semibold ${selectedAnswer === 'yes' ? 'ring-4 ring-primary-500' : ''
                 }`}
             >
               Yeah I absolutely need those!
