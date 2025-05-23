@@ -6,7 +6,7 @@ const featureSteps = [
   {
     id: 1,
     title: "Subscribe & Setup",
-    description: "You subscribe, set up your brand colours, and define incentives to give to customers who post reviews or post about your business on their socials.",
+    description: "Set up your info, brand colours, and tell customers why their reviews and support matters!",
     icon: "settings"
   },
   {
@@ -112,12 +112,12 @@ const FeaturesSection = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <div className="bg-primary-600 text-white p-3">
-                      <h4 className="text-sm font-bold">Configure Incentives</h4>
+                      <h4 className="text-sm font-bold">Configure your business</h4>
                     </div>
                     <div className="p-4">
                       <div className="space-y-4">
                         <div>
-                          <label className="block text-xs mb-1">Reward Type</label>
+                          <label className="block text-xs mb-1">Links to your reviews & socials</label>
                           <div className="flex gap-2">
                             <button
                               className={`px-3 py-1 text-xs rounded-full ${
@@ -127,7 +127,7 @@ const FeaturesSection = () => {
                               }`}
                               onClick={() => setIncentiveType('percentage')}
                             >
-                              Percentage
+                              Google Maps
                             </button>
                             <button
                               className={`px-3 py-1 text-xs rounded-full ${
@@ -137,14 +137,15 @@ const FeaturesSection = () => {
                               }`}
                               onClick={() => setIncentiveType('fixed')}
                             >
-                              Fixed Amount
+                              Instagram
                             </button>
                           </div>
                         </div>
+
                         <div>
-                          <label className="block text-xs mb-1">Reward Value</label>
+                          <label className="block text-xs mb-1">Tell customers why it's key for you to get reviews & what they stand to gain from following you</label>
                           <div className="flex items-center">
-                            <input
+                            {/* <input
                               type="number"
                               className="w-20 text-sm p-1 border rounded-sm"
                               value={incentiveValue}
@@ -152,14 +153,19 @@ const FeaturesSection = () => {
                             />
                             <span className="ml-2 text-sm">
                               {incentiveType === 'percentage' ? '%' : '$'}
-                            </span>
+                            </span> */}
                           </div>
                         </div>
+
                         <div className="bg-gray-50 p-3 rounded-sm">
                           <p className="text-xs">
-                            Customers will receive {incentiveValue}{incentiveType === 'percentage' ? '%' : '$'} off
-                            their next purchase when they leave a review or social media post.
+                            Set your business brand colours to match.
                           </p>
+
+                          <div className="flex gap-2 mt-2">
+                            <div className="w-6 h-6 bg-primary-500 rounded-xs"></div>
+                            <div className="w-6 h-6 bg-accent-500 rounded-xs"></div>
+                          </div>
                         </div>
                       </div>
                     </div>

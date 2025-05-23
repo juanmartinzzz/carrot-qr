@@ -1,8 +1,8 @@
 import { useState } from "react";
 import InputText from "../../components/interaction/InputText";
-import BlackButton from "../../components/interaction/BlackButton";
 import OutlineButton from "../../components/interaction/OutlineButton";
 
+/** @deprecated */
 const LinkReward = ({ propertyName, enableButtonText, store, setStore }) => {
   const [shouldShowRewardConfig, setShouldShowRewardConfig] = useState(false);
 

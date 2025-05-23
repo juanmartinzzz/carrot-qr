@@ -67,10 +67,6 @@ const Home = () => {
           <PricingSection />
         </main>
 
-        <div className="flex justify-center items-center h-screen text-7xl">
-          <img src={generatedExample} alt="logo" className="w-1/2 rounded-lg" />
-        </div>
-
         <div className="my-8 flex justify-center">
           <BlackButton onClick={handleStoreCodeReset}>Create a new store</BlackButton>
         </div>

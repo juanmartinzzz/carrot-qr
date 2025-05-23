@@ -1,4 +1,4 @@
-import LinkReward from "./LinkReward";
+// import LinkReward from "./LinkReward";
 import LinkTutorial from "./LinkTutorual";
 import InputText from "../../components/interaction/InputText";
 import { SiGoogle, SiInstagram } from "@icons-pack/react-simple-icons";
@@ -28,9 +28,9 @@ const LinksAndRewards = ({ store, setStore }) => {
           }]} />
         </div>
 
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <LinkReward propertyName="google_maps_reward" store={store} setStore={setStore} enableButtonText="Reward customers for leaving a Google Maps review" />
-        </div>
+        </div> */}
       </div>
 
       <div>
@@ -52,9 +52,9 @@ const LinksAndRewards = ({ store, setStore }) => {
           }]} />
         </div>
 
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <LinkReward propertyName="instagram_reward" store={store} setStore={setStore} enableButtonText="Reward customers for leaving an Instagram review" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

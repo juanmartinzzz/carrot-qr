@@ -32,8 +32,8 @@ const QuickHowItWorksSection = () => {
     },
     {
       icon: Heart,
-      title: "Get support & give rewards",
-      description: "Oh cool, I get 10% off for mentioning on insta!",
+      title: "Ask your customers to scan to review & follow",
+      description: "Much easier than manually googling your business!",
       color: "bg-green-100",
       iconColor: "text-green-600",
       delay: 0.4,
@@ -91,12 +91,12 @@ const QuickHowItWorksSection = () => {
                 <motion.img
                   src={panel.image}
                   alt={panel.imageAlt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   initial={{ scale: 1.1 }}
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.3 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-10% to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <panel.icon className={`w-8 h-8 ${panel.iconColor} bg-white/90 p-1.5 rounded-sm shadow-lg`} />
                 </div>

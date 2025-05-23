@@ -11,9 +11,9 @@ const SocialCard = ({
   isHovered,
   rotation = 1,
   brandColors,
-  reward
+  // reward
 }) => {
-  const words = reward ? reward.split(' ') : [];
+  // const words = reward ? reward.split(' ') : [];
 
   return (
     <motion.a
@@ -54,7 +54,7 @@ const SocialCard = ({
         {description}
       </p> */}
 
-      {reward && (
+      {/* {reward && (
         <motion.div
           className="relative overflow-hidden p-6 rounded-sm border border-white/40 bg-white/10"
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const SocialCard = ({
             </div>
           </div>
         </motion.div>
-      )}
+      )} */}
     </motion.a>
   );
 };

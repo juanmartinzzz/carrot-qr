@@ -8,10 +8,6 @@ import { HashLink } from "../../components/HashLink";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useParams } from "react-router-dom";
 import { SiGoogle, SiInstagram } from "@icons-pack/react-simple-icons";
-import ctaGoogleReview1 from "../../assets/images/ctaGoogleReview1.png";
-import ctaGoogleReview2 from "../../assets/images/ctaGoogleReview2.png";
-import ctaGoogleReview3 from "../../assets/images/ctaGoogleReview3.png";
-import ctaGoogleReview4 from "../../assets/images/ctaGoogleReview4.png";
 import ctaGoogleReview5 from "../../assets/images/ctaGoogleReview5.png";
 import ctaFollowOnInsta from "../../assets/images/ctaFollowOnInsta.png";
 
@@ -25,7 +21,7 @@ const Hello = () => {
   const [store, setStore] = useState(null);
   const [owner, setOwner] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
-  const [showReviewForm, setShowReviewForm] = useState(false);
+  // const [showReviewForm, setShowReviewForm] = useState(false);
   const [activeSection, setActiveSection] = useState('stats');
 
   const brandColors = owner ? [owner.brand_colour_1, owner.brand_colour_2, owner.brand_colour_3] : ['#ffffff', '#ffffff', '#ffffff'];
@@ -151,7 +147,7 @@ const Hello = () => {
                   isHovered={hoveredCard === 'google'}
                   rotation={1}
                   brandColors={brandColors}
-                  reward={store.google_maps_reward}
+                  // reward={store.google_maps_reward}
                 />
 
                 <SocialCard
@@ -164,7 +160,7 @@ const Hello = () => {
                   isHovered={hoveredCard === 'instagram'}
                   rotation={-1}
                   brandColors={brandColors}
-                  reward={store.instagram_reward}
+                  // reward={store.instagram_reward}
                 />
               </motion.div>
             </div>
